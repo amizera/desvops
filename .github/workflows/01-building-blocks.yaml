@@ -2,6 +2,7 @@ name: 01 - Build Blocks
 
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   echo-hello:
@@ -9,13 +10,33 @@ jobs:
     steps:
       - name: Say Hello
         run: echo "Hello, World!"
+      - name: Tworzę pliki
+        run: |
+          echo "Tworzę pliki..."
+          touch file1.txt file2.txt file3.txt
+          echo "Pliki zostały utworzone." > plik1.txt
+          echo "Pliki zostały utworzone." > plik2.txt
+      - name: List Files
+        run: ls -la
+      - name: Wyświetlam zawartość plików
+        run: |
+          echo "Zawartość plik1.txt:"
+          cat plik1.txt
+          echo "Zawartość plik2.txt:"
+          cat plik2.txt
   echo-goodbye:
     runs-on: ubuntu-latest
     steps:
       - name: Failed Step
         run: |
           echo "I will fail now"
-          exit 1
+          exit 0
+      - name: Wyświetlam zawartość plików
+        run: |
+          echo "Zawartość plik1.txt:"
+          cat plik1.txt
+          echo "Zawartość plik2.txt:"
+          cat plik2.txt
       - name: Say Goodbye
         run: |
           echo "This step will be skipped if the previous step fails"
