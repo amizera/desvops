@@ -1,0 +1,34 @@
+name: 03 - Workflow Runners
+
+on:
+  push:
+  
+jobs:
+  lin-echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show the trigger
+        run: |
+          echo "Linux runner"
+          cat /etc/os-release
+          cat /proc/cpuinfo
+          cat /proc/meminfo
+  win-echo:
+    runs-on: windows-latest
+    steps:
+      - name: Show the trigger
+        shell: bash
+        run: |
+          echo "Działa na windowsowym runnerze"
+          systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+          wmic cpu get name
+          wmic memorychip get capacity
+  osx-echo:     
+    runs-on: macos-latest
+    steps:
+      - name: Show the trigger
+        run: |
+          echo "macOS runner"
+          cat /System/Library/CoreServices/SystemVersion.plist
+          sysctl -n machdep.cpu.brand_string
+          sysctl -n hw.memsize
