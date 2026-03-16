@@ -31,12 +31,12 @@ jobs:
         run: |
           echo "I will fail now"
           exit 0
-      - name: Wyświetlam zawartość plików
-        run: |
-          echo "Zawartość plik1.txt:"
-          cat plik1.txt
-          echo "Zawartość plik2.txt:"
-          cat plik2.txt
+      # - name: Wyświetlam zawartość plików
+      #   run: |
+      #     echo "Zawartość plik1.txt:"
+      #     cat plik1.txt
+      #     echo "Zawartość plik2.txt:"
+      #     cat plik2.txt
       - name: Say Goodbye
         run: |
           echo "This step will be skipped if the previous step fails"
