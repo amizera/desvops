@@ -19,6 +19,6 @@ jobs:
         run: cd react-app
 
       - name: Install Dependencies
-        run: npm ic
+        run: npm install
       - name: Run Tests
         run: npm run test
