@@ -1,8 +1,8 @@
-name: 05 - Filters - Activity Types
+name: 05 - Filters - Activity Types 2
 
 on:
   pull_request:
-    types: [closed]]
+    types: [closed]
   branch:
     - main
   
