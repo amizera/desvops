@@ -22,9 +22,6 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: cd into the project directory
-        run: cd react-app
-
       - name: Install Dependencies
         run: |
           pwd
