@@ -1,0 +1,22 @@
+name: 06 - Contexts
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  echo-data:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: 06-context/pogoda
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+  
+      - name: Run app and set variable
+        env:
+          CITY: ${{ inputs.city }}
+          API_KEY: ${{ inputs.MY_KLUCZYK }}
+        run: |
+          ./start.sh CITY API_KEY
