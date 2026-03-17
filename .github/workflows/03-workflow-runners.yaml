@@ -32,3 +32,12 @@ jobs:
           cat /System/Library/CoreServices/SystemVersion.plist
           sysctl -n machdep.cpu.brand_string
           sysctl -n hw.memsize
+  linux-self-hosted:
+    runs-on: self-hosted
+    steps:
+      - name: Show the trigger
+        run: |
+          echo "Linux runner"
+          cat /etc/os-release
+          cat /proc/cpuinfo
+          cat /proc/meminfo
