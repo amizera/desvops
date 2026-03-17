@@ -6,10 +6,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: 04-using-actions/react-app
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-
+      - name: Show the files
+        run: |
+          ls -la
+          pwd
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -22,8 +29,6 @@ jobs:
         run: |
           pwd
           npm ci
-        working-directory: 04-using-actions/react-app
 
       - name: Run Tests
         run: npm run test
-        working-directory: 04-using-actions/react-app
