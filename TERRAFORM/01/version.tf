@@ -11,7 +11,7 @@ terraform {
     organization = "48340"
 
     workspaces {
-      name = "github_action_szkolenie"
+      name = "test"
     }
   }
 }
